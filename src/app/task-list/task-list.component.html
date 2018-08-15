@@ -1,0 +1,3 @@
+<ul>
+  <li *ngFor="let currentTask of tasks"><span [class]="priorityColor(currentTask)">{{currentTask.description}}</span><button (click)="editTask()">Edit!</button></li>
+</ul>
