@@ -5,4 +5,6 @@
   </h1>
   <h3>{{currentFocus}}</h3>
 
-<app-task-list [childTaskList]="masterTaskList" [selectedTask]="selectedTask" (clickSender)="editTask($event)" (clickDone)="finishedEditing()"></app-task-list>
+<app-task-list [childTaskList]="masterTaskList" (clickSender)="editTask($event)" ></app-task-list>
+<app-edit-task [selectedTask]="selectedTask" (clickDone)="finishedEditing()"></app-edit-task>
+<app-new-task (sendTask)="addTask($event)"></app-new-task>

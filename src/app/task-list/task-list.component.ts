@@ -10,15 +10,20 @@ export class TaskListComponent {
   @Input() childTaskList: Task[];
   @Input() selectedTask: Task;
   @Output() clickSender = new EventEmitter();
-  @Output() clickDone = new EventEmitter();
 
   editButtonClicked(taskToEdit: Task) {
     this.clickSender.emit(taskToEdit);
   }
 
-  doneButtonClicked() {
-    this.clickDone.emit();
+  filterByCompleteness: string = "imcompleteTasks";
+
+  onChange(optionFromMenu) {
+    this.filterByCompleteness = optionFromMenu;
   }
+
+  toggleDone(clickedTask: Task, setCompleteness: boolean) {
+   clickedTask.done = setCompleteness;
+ }
 
   priorityColor(currentTask) {
     if (currentTask.priority === 3) {
